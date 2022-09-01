@@ -9,7 +9,7 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, 'static'),
-        host: '127.0.0.1',
+        host: '0.0.0.0',
         port: process.env.PORT || 8601,
         proxy: {
             '/api': {
