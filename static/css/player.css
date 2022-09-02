@@ -1,0 +1,26 @@
+.topsection{
+    background: none;
+}
+#stageframe{
+    margin: 0!important;
+    width: 480px!important;
+    transform-origin: 0 0;
+}
+.fullscreen,.gridToggle{
+    display: none;
+}
+
+.leftpanel, .blockspalette, .scripts, .rightpanel, #livegrid, #rownum{
+    display: none;
+}
+.stage{
+    transform: none!important;
+    top: 80px;
+} 
+
+.resetall{
+    left: 10px !important;
+}
+.go{
+    left: 80px!important;
+}

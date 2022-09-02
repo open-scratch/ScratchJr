@@ -8,6 +8,7 @@ import MediaLib from '../tablet/MediaLib';
 import {indexMain} from './index';
 import {homeMain} from './home';
 import {editorMain} from './editor';
+import {playerMain} from './player';
 import {gettingStartedMain} from './gettingstarted';
 import {inappInterfaceGuide, inappAbout, inappBlocksGuide, inappPaintEditorGuide} from './inapp';
 
@@ -62,6 +63,19 @@ window.onload = () => {
         preprocessAndLoadCss('css', 'css/librarymodal.css');
         preprocessAndLoadCss('css', 'css/paintlook.css');
         entryFunction = () => OS.waitForInterface(editorMain);
+        break;
+    case 'player':
+        // Player pages
+        preprocessAndLoadCss('css', 'css/font.css');
+        preprocessAndLoadCss('css', 'css/base.css');
+        preprocessAndLoadCss('css', 'css/editor.css');
+        preprocessAndLoadCss('css', 'css/player.css');
+        preprocessAndLoadCss('css', 'css/editorleftpanel.css');
+        preprocessAndLoadCss('css', 'css/editorstage.css');
+        preprocessAndLoadCss('css', 'css/editormodal.css');
+        preprocessAndLoadCss('css', 'css/librarymodal.css');
+        preprocessAndLoadCss('css', 'css/paintlook.css');
+        entryFunction = () => OS.waitForInterface(playerMain);
         break;
     case 'gettingStarted':
         // Getting started video page

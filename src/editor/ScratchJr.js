@@ -228,6 +228,40 @@ export default class ScratchJr {
         }
     }
 
+    static playerinit(v){
+        stagecolor = window.Settings.stageColor;
+        defaultSprite = window.Settings.defaultSprite;
+        version = v;
+        document.body.scrollTop = 0;
+        time = (new Date()) - 0;
+        var urlvars = getUrlVars();
+        OS.hascamera();
+        ScratchJr.log('starting the app');
+        BlockSpecs.initBlocks();
+        Project.loadIcon = document.createElement('img');
+        Project.loadIcon.src = 'assets/loading.png';
+        ScratchJr.log('blocks init', ScratchJr.getTime(), 'sec', BlockSpecs.loadCount);
+        currentProject = urlvars.pmd5;
+        if("filepath" in urlvars){
+            filepath = urlvars.filepath
+        }
+        editmode = 'look';
+        libInit();
+        Project.init();
+        ScratchJr.log('Start ui init', ScratchJr.getTime(), 'sec');
+        Project.setProgress(10);
+        ScratchAudio.init();
+        Library.init();
+        Paint.init();
+        Record.init();
+        Prims.init();
+        runtime = new Runtime();
+        Undo.init();
+        ScratchJr.editorEvents();
+        Project.load();
+        Events.init();
+    }
+
     //获取Sjr项目文件
     static getProjectSjr(cb){
         let md5 = ScratchJr.currentProject + ""
@@ -562,6 +596,13 @@ export default class ScratchJr {
         inFullscreen = true;
         UI.enterFullScreen();
         OS.analyticsEvent('editor', 'full_screen_entered');
+        document.body.style.background = 'black';
+    }
+
+    static enterPlayer(){
+        ScratchJr.displayStatus('none');
+        inFullscreen = true;
+        UI.enterFullScreen();
         document.body.style.background = 'black';
     }
 
