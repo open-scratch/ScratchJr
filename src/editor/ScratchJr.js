@@ -201,6 +201,7 @@ export default class ScratchJr {
         currentProject = urlvars.pmd5;
         if("filepath" in urlvars){
             filepath = urlvars.filepath
+            console.log('Filepath' + filepath);
         }
         editmode = urlvars.mode;
         libInit();
@@ -226,6 +227,9 @@ export default class ScratchJr {
                 }
             }, window.Settings.autoSaveInterval);
         }
+        if(window.JrConfig && window.JrConfig.onInit){
+            window.JrConfig.onInit()
+        }
     }
 
     static playerinit(v){
@@ -244,6 +248,7 @@ export default class ScratchJr {
         currentProject = urlvars.pmd5;
         if("filepath" in urlvars){
             filepath = urlvars.filepath
+            console.log('Filepath' + filepath);
         }
         editmode = 'look';
         libInit();
@@ -260,6 +265,9 @@ export default class ScratchJr {
         ScratchJr.editorEvents();
         Project.load();
         Events.init();
+        if(window.JrConfig && window.JrConfig.onInit){
+            window.JrConfig.onInit()
+        }
     }
 
     //获取Sjr项目文件

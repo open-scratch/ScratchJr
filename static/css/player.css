@@ -20,7 +20,11 @@
 
 .resetall{
     left: 10px !important;
+    width: 50px!important;
+    height: 50px!important;
 }
 .go{
     left: 80px!important;
+    width: 50px!important;
+    height: 50px!important;
 }

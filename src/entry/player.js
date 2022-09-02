@@ -16,12 +16,5 @@ export function playerMain () {
             Camera.available = list[3] == 'YES' ? true : false;
         }
         ScratchJr.playerinit(window.Settings.scratchJrVersion);
-        //stage自适应
-        
-        // document.getElementsByTagName('body')[0].style.transform = "scale(" + scale + ")"
-        setTimeout(function(){
-            var scale = window.innerWidth / 480
-            document.getElementById('stageframe').style.transform = "scale(" + scale + ")"
-        }, 1000)
     }
 }

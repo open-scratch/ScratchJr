@@ -16,9 +16,19 @@
 
     window.scratchJrPage = 'player';
     window.JrConfig = {
+        onInit(){
+          console.log("onInit")
+          // window.ScratchJr.loadProjectSjr(url);
+        },
+        onLoaded(){
+          console.log("onLoaded");
+          var scale = window.innerWidth / 480
+          document.getElementById('stageframe').style.transform = "scale(" + scale + ")"
+          
+        }
     }
 
-    // window.ScratchJr.loadProjectSjr(url);
+    
 
 </script>
 <script type="text/javascript" src="app.bundle.js"></script>

@@ -135,6 +135,9 @@ export default class Project {
             if (isAndroid) {
                 AndroidInterface.notifyEditorDoneLoading();
             }
+            if(window.JrConfig && window.JrConfig.onLoaded){
+                window.JrConfig.onLoaded()
+            }
         }
     }
 
