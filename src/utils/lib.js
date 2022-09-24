@@ -1,7 +1,8 @@
 export var frame;
 // XXX: isTablet is legacy code that can be used to detect if we're running on a desktop browser
 // There are references to it throughout the codebase, should possibly be removed at some point
-export const isTablet = /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent);//(window.orientation != 'undefined');
+export const isTablet = /Android|webOS|iPhone|iPod|iPad|Safari|BlackBerry/i.test(navigator.userAgent);//(window.orientation != 'undefined');
+// export var isTablet = window.isTablet;
 export const DEGTOR = Math.PI / 180;
 export const WINDOW_INNER_HEIGHT = window.innerHeight;
 export const WINDOW_INNER_WIDTH = window.innerWidth;
