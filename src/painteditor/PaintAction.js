@@ -1121,7 +1121,11 @@ export default class PaintAction {
         var pt = Events.getTargetPoint(evt);
         return PaintAction.zoomPt(pt);
     }
-
+    static toFixed6(number) {
+        const roundedNumber = Math.round(number * 1e6) / 1e6;
+    
+        return roundedNumber.toFixed(6)
+    }
     static zoomPt (pt) {
         var mc = gn('maincanvas');
         if (!mc) {
@@ -1133,7 +1137,8 @@ export default class PaintAction {
         var screenMatrix = Paint.root.getScreenCTM();
         var globalPoint = pt2.matrixTransform(screenMatrix.inverse());
         // screenMatrix should include the currentScale, if it doesn't match, apply scaling
-        if (screenMatrix.a != Paint.currentZoom) {
+        // if (screenMatrix.a != Paint.currentZoom) {
+        if (PaintAction.toFixed6(screenMatrix.a) != PaintAction.toFixed6(Paint.currentZoom)) {
             globalPoint.x = globalPoint.x / Paint.currentZoom;
             globalPoint.y = globalPoint.y / Paint.currentZoom;
         }

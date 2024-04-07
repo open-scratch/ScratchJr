@@ -43,7 +43,13 @@ export default class Stage {
             y: 0
         };
     }
+    // 超出最大范围
+    isOutOfRange ({x, y}) {
+        const maxWidth = 480;
+        const maxHeight = 360;
 
+        return x < 0 || x > maxWidth || y < 0 || y > maxHeight;
+    }
     setStageScaleAndPosition (scale, x, y) {
         this.stageScale = scale;
         setProps(gn('stage').style, {
@@ -465,6 +471,11 @@ export default class Stage {
             return;
         }
         var pt = this.getStagePt(e);
+         // 判断是否超出最大范围
+         const isOutOf = this.isOutOfRange(pt);
+         if (isOutOf) {
+             return
+         }
         var delta = Vector.diff(pt, this.initialPoint);
         var dist = ScratchJr.inFullscreen ? 15 : 5;
         if (!Events.dragged && (Vector.len(delta) > dist)) {
